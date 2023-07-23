@@ -19,7 +19,6 @@ body {
   padding: 0;
   margin: 0;
   display: inline-block;
-  animation: tickerAnimation linear infinite;
 }
 
 .news-item {
@@ -29,16 +28,3 @@ body {
   font-size: 50px;
   opacity: 1;
 }
-
-/* Definieren der Animation */
-@keyframes tickerAnimation {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-  
-  

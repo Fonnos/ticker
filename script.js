@@ -1,5 +1,6 @@
 // script.js
 const ticker = document.getElementById("ticker");
+let animationId;
 
 function calculateAnimationDuration() {
   const tickerItems = ticker.querySelectorAll(".news-item");
@@ -10,6 +11,29 @@ function calculateAnimationDuration() {
   const containerWidth = ticker.offsetWidth;
   const animationDuration = totalWidth / 100; // Adjust the divisor to control the animation speed
   return animationDuration;
+}
+
+function animateTicker() {
+  const tickerWidth = ticker.getBoundingClientRect().width;
+  const tickerItems = ticker.querySelectorAll(".news-item");
+  let currentPosition = 0;
+  let itemWidth = 0;
+
+  function animate() {
+    currentPosition -= 1;
+    ticker.style.transform = `translateX(${currentPosition}px)`;
+
+    if (Math.abs(currentPosition) >= itemWidth) {
+      currentPosition = 0;
+      ticker.appendChild(tickerItems[0]);
+      itemWidth = tickerItems[0].getBoundingClientRect().width + 20; // 20px margin-right
+    }
+
+    animationId = requestAnimationFrame(animate);
+  }
+
+  itemWidth = tickerItems[0].getBoundingClientRect().width + 20; // 20px margin-right
+  animate();
 }
 
 function displayNews() {
@@ -23,6 +47,8 @@ function displayNews() {
 
   const animationDuration = calculateAnimationDuration();
   ticker.style.animationDuration = `${animationDuration}s`;
+
+  animateTicker();
 }
 
 // Initial news array
