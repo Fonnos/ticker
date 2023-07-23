@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .news-ticker-container {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    overflow: hidden; /* Damit der Text, der das Container übersteigt, versteckt wird */
+    width: 100%; /* Die Breite auf 50% des Bildschirms setzen */
+    height: 70pxpx;
+
+    margin: 0 auto; /* Um den Container horizontal zu zentrieren */
+  }
+  
+  .news-ticker {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap; /* Damit die Nachrichten in einer Zeile bleiben und scrollen können */
+    animation: tickerAnimation linear infinite 20s; /* Wir verwenden die Animation auf den News-Ticker */
+  }
+  
+  .news-item {
+    display: inline-block; /* Damit die Nachrichten nebeneinander angezeigt werden */
+    font-size: 18px;
+    margin-right: 20px; /* Zwischenabstand zwischen den Nachrichten */
+    font-size: 50px;
+  }
+
+  #main-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Definieren der Animation */
+  @keyframes tickerAnimation {
+    0% {
+      transform: translateX(100%); /* Startpunkt der Animation */
+    }
+    100% {
+      transform: translateX(-100%); /* Endpunkt der Animation */
+    }
+  }
+
+  
+  
