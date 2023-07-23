@@ -5,6 +5,14 @@ body {
   padding: 0;
 }
 
+#main-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
 .news-ticker-container {
   background-color: #333;
   color: #fff;
@@ -19,6 +27,7 @@ body {
   padding: 0;
   margin: 0;
   display: inline-block;
+  animation: tickerAnimation linear infinite;
 }
 
 .news-item {
@@ -29,9 +38,15 @@ body {
   opacity: 1;
 }
 
-#main-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* Definieren der Animation */
+@keyframes tickerAnimation {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
+
+  
+  
